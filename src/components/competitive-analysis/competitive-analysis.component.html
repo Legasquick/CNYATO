@@ -1,0 +1,44 @@
+<section id="competitive-analysis" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Конкурентный анализ</h2>
+    <p class="mt-4 text-lg text-gray-400">Сравнение по ключевым потребностям клиента.</p>
+  </div>
+
+  <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-2xl shadow-blue-900/40">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[1000px] text-sm text-left text-gray-300">
+        <thead class="text-xs text-white uppercase bg-gray-800/60 font-heading">
+          <tr>
+            <th scope="col" class="px-6 py-4">Факторы (Ключевые потребности клиента)</th>
+            <th scope="col" class="px-6 py-4 text-center">Весомость фактора (1-5)</th>
+            <th scope="col" class="px-6 py-4 text-center text-blue-300">{{ headers.snyato }}</th>
+            <th scope="col" class="px-6 py-4 text-center">{{ headers.jenevaPro }}</th>
+            <th scope="col" class="px-6 py-4 text-center">{{ headers.goFrame }}</th>
+            <th scope="col" class="px-6 py-4 text-center">{{ headers.freelancer }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(row of competitorsData; track row.factor) {
+            <tr class="border-b border-gray-700 hover:bg-gray-800/40">
+              <td class="px-6 py-4 font-medium text-white whitespace-nowrap">{{ row.factor }}</td>
+              <td class="px-6 py-4 text-center font-mono">{{ row.weight }}</td>
+              <td class="px-6 py-4 text-center font-bold font-mono text-lg" [class]="getScoreColor(row.snyato)">{{ row.snyato }}</td>
+              <td class="px-6 py-4 text-center font-mono" [class]="getScoreColor(row.jenevaPro)">{{ row.jenevaPro }}</td>
+              <td class="px-6 py-4 text-center font-mono" [class]="getScoreColor(row.goFrame)">{{ row.goFrame }}</td>
+              <td class="px-6 py-4 text-center font-mono" [class]="getScoreColor(row.freelancer)">{{ row.freelancer }}</td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr class="bg-gray-800 text-white font-bold font-heading">
+            <td colspan="2" class="px-6 py-4 text-right">Итоговый средневзвешенный балл:</td>
+            <td class="px-6 py-4 text-center font-mono text-blue-300 text-base">{{ totals.snyato }}</td>
+            <td class="px-6 py-4 text-center font-mono text-base">{{ totals.jenevaPro }}</td>
+            <td class="px-6 py-4 text-center font-mono text-base">{{ totals.goFrame }}</td>
+            <td class="px-6 py-4 text-center font-mono text-base">{{ totals.freelancer }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

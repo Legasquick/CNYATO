@@ -1,0 +1,53 @@
+<section id="project-efficiency" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Таблица 3: Основные показатели эффективности</h2>
+    <p class="mt-4 text-lg text-gray-400">Ключевые метрики, подтверждающие финансовую состоятельность проекта для выбранного сценария.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for(indicator of currentData(); track indicator.name) {
+      <div class="bg-gray-800/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/50 hover:-translate-y-2 flex flex-col">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="bg-blue-600/20 p-3 rounded-lg mt-1">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="indicator.icon"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white font-heading">{{ indicator.name }}</h3>
+            <p class="text-2xl font-bold text-blue-400 font-heading">{{ indicator.value }}</p>
+          </div>
+        </div>
+        @if(indicator.description) {
+           <p class="text-gray-300 leading-relaxed text-sm flex-grow">{{ indicator.description }}</p>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="mt-12 text-center max-w-3xl mx-auto p-6 bg-gray-800 border rounded-xl shadow-lg"
+    [class.border-blue-500/30]="scenario() === 'Realistic'"
+    [class.shadow-blue-900/50]="scenario() === 'Realistic'"
+    [class.border-teal-500/30]="scenario() === 'Optimistic'"
+    [class.shadow-teal-900/50]="scenario() === 'Optimistic'"
+    [class.border-amber-500/30]="scenario() === 'Pessimistic'"
+    [class.shadow-amber-900/50]="scenario() === 'Pessimistic'">
+      <h3 class="text-xl font-bold mb-2 font-heading"
+        [class.text-blue-300]="scenario() === 'Realistic'"
+        [class.text-teal-300]="scenario() === 'Optimistic'"
+        [class.text-amber-300]="scenario() === 'Pessimistic'">
+        Вывод по сценарию:
+      </h3>
+      <p class="text-gray-300">
+        @if(scenario() === 'Realistic') {
+          Проект демонстрирует устойчивость, выходя на окупаемость в пределах 5 лет. Показатели находятся на грани инвестиционной привлекательности, что делает его жизнеспособным, но требующим тщательного управления затратами и фокуса на росте выручки.
+        }
+        @if(scenario() === 'Optimistic') {
+           Все ключевые показатели эффективности демонстрируют высокую инвестиционную привлекательность. Проект не только окупается в короткие сроки (~3.9 лет), но и обладает значительным потенциалом для генерации прибыли, что делает его финансово устойчивым и перспективным.
+        }
+        @if(scenario() === 'Pessimistic') {
+          Проект является нежизнеспособным. Отрицательный NPV и IRR, а также срок окупаемости более 5 лет указывают на то, что инвестиции не вернутся в прогнозируемом периоде. Данный сценарий требует кардинального пересмотра бизнес-модели.
+        }
+      </p>
+  </div>
+</section>

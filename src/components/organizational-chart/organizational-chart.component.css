@@ -1,0 +1,143 @@
+/* --- ADAPTED FOR DARK THEME --- */
+
+/* --- ЦВЕТОВАЯ СХЕМА И ЛЕГЕНДА --- */
+.legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0 40px 0;
+    padding: 15px;
+    background: #1f2937; /* gray-800 */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+    border: 1px solid #374151; /* gray-700 */
+}
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.9em; }
+.legend-color { width: 20px; height: 20px; border-radius: 4px; }
+
+/* Colors Definition */
+.color-producer { background-color: #3b82f6; border: 1px solid #60a5fa; }
+.color-creative { background-color: #f59e0b; border: 1px solid #fbbf24; }
+.color-production { background-color: #10b981; border: 1px solid #34d399; }
+.color-post-prod { background-color: #0ea5e9; border: 1px solid #38bdf8; }
+.color-admin { background-color: #ec4899; border: 1px solid #f472b6; }
+
+/* Applying colors - Base classes */
+.producer-dept { background-color: rgb(59 130 246 / 0.3); color: #dbeafe; }
+.creative-dept { background-color: rgb(245 158 11 / 0.3); color: #fef3c7; }
+.production-dept { background-color: rgb(16 185 129 / 0.3); color: #d1fae5; }
+.post-prod-dept { background-color: rgb(14 165 233 / 0.3); color: #e0f2fe; }
+.admin-dept { background-color: rgb(236 72 153 / 0.3); color: #fce7f3; }
+
+/* --- КОНТЕЙНЕР ДЛЯ ФУНКЦИОНАЛЬНОЙ СХЕМЫ --- */
+.chart-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px 10px;
+    background: #111827; /* gray-900 */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    margin-bottom: 20px;
+    border: 1px solid #374151; /* gray-700 */
+}
+.chart-container::-webkit-scrollbar { height: 8px; }
+.chart-container::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; } /* gray-600 */
+
+/* --- ФУНКЦИОНАЛЬНАЯ СТРУКТУРА (ВЕРХНЯЯ ЧАСТЬ) --- */
+.functional-chart { text-align: center; display: inline-block; }
+.functional-chart ul { padding-top: 20px; position: relative; display: flex; justify-content: center; white-space: nowrap; }
+.functional-chart li { list-style-type: none; position: relative; padding: 20px 5px 0 5px; display: inline-block; vertical-align: top; }
+.functional-chart li::before, .functional-chart li::after { content: ''; position: absolute; top: 0; right: 50%; border-top: 2px solid #4b5563; width: 50%; height: 20px; } /* gray-600 */
+.functional-chart li::after { right: auto; left: 50%; border-left: 2px solid #4b5563; } /* gray-600 */
+.functional-chart li:only-child::after, .functional-chart li:only-child::before { display: none; }
+.functional-chart li:only-child { padding-top: 0; }
+.functional-chart li:first-child::before, .functional-chart li:last-child::after { border: 0 none; }
+.functional-chart li:last-child::before { border-right: 2px solid #4b5563; border-radius: 0 5px 0 0; } /* gray-600 */
+.functional-chart li:first-child::after { border-radius: 5px 0 0 0; }
+.functional-chart ul ul::before { content: ''; position: absolute; top: 0; left: 50%; border-left: 2px solid #4b5563; width: 0; height: 20px; } /* gray-600 */
+.functional-chart li span {
+    border: 2px solid #374151; /* gray-700 */
+    padding: 12px 18px;
+    display: inline-block;
+    border-radius: 8px;
+    min-width: 150px;
+    background-color: #1f2937; /* gray-800 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: #e5e7eb; /* gray-200 */
+}
+
+.ceo > span, .department > span {
+    background-color: #374151; /* gray-700 */
+    color: #f3f4f6; /* gray-100 */
+    border: 2px solid #4b5563; /* gray-600 */
+}
+.ceo > span { font-size: 1.1em; font-weight: bold; }
+
+.manager > span {
+    background-color: rgb(16 185 129 / 0.1);
+    border-color: #34d399; /* emerald-400 */
+    font-style: italic;
+    color: #d1fae5;
+}
+
+.specialist > span { transition: transform 0.2s; }
+.specialist > span:hover { transform: scale(1.05); }
+.specialist > span.producer-dept { border-color: #60a5fa;}
+.specialist > span.creative-dept { border-color: #fbbf24;}
+.specialist > span.production-dept { border-color: #34d399;}
+.specialist > span.post-prod-dept { border-color: #38bdf8;}
+.specialist > span.admin-dept { border-color: #f472b6; }
+
+/* --- СОЕДИНИТЕЛЬНЫЙ ЭЛЕМЕНТ --- */
+.matrix-connector { width: 100%; text-align: center; margin: 20px 0; }
+.matrix-connector svg { width: 80px; height: 80px; color: #6b7280; } /* gray-500 */
+
+/* --- ПРОЕКТНЫЕ КОМАНДЫ (НИЖНЯЯ ЧАСТЬ) --- */
+.project-teams-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
+    padding-top: 20px;
+    border-top: 3px dashed #374151; /* gray-700 */
+}
+.project-card {
+    background-color: #1f2937; /* gray-800 */
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #374151; /* gray-700 */
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.3); border-color: #6366f1; }
+.project-header { padding: 15px 20px; border-bottom: 1px solid #374151; } /* gray-700 */
+.project-header h3 { margin: 0; color: #818cf8; } /* indigo-400 */
+.project-header p { margin: 5px 0 0; font-style: italic; color: #9ca3af; } /* gray-400 */
+.project-card ul { list-style: none; padding: 15px 20px; margin: 0; }
+.project-card li {
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    border: 2px solid transparent;
+}
+.project-card li:last-child { margin-bottom: 0; }
+
+/* Color the borders based on department */
+.project-card li.producer-dept { border-color: #60a5fa; }
+.project-card li.creative-dept { border-color: #fbbf24; }
+.project-card li.production-dept { border-color: #34d399; }
+.project-card li.post-prod-dept { border-color: #38bdf8; }
+.project-card li.admin-dept { border-color: #f472b6; }
+
+
+.project-header b.producer-dept {
+    background: transparent;
+    border: none;
+    color: #a5b4fc; /* indigo-300 */
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 4px;
+}

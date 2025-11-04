@@ -1,0 +1,34 @@
+<div class="relative min-h-screen bg-gray-900 overflow-x-hidden">
+  <main>
+    <app-hero></app-hero>
+    
+    <div class="relative z-10 space-y-24 md:space-y-32 lg:space-y-48 pb-24 md:pb-32 lg:pb-48 bg-gray-900">
+      <app-showreel></app-showreel>
+      <app-services></app-services>
+      <app-about></app-about>
+      <app-audience></app-audience>
+      <app-market-positioning></app-market-positioning>
+      <app-infographics></app-infographics>
+      <app-microenvironment-factors></app-microenvironment-factors>
+      <app-competitive-analysis></app-competitive-analysis>
+      <app-sales-channels></app-sales-channels>
+      <app-advertising-analysis></app-advertising-analysis>
+      <app-marketing-mix></app-marketing-mix>
+      <app-media-plan></app-media-plan>
+      <app-organizational-chart></app-organizational-chart>
+      <app-work-schedule></app-work-schedule>
+      <app-risk-map></app-risk-map>
+      <app-risk-mitigation></app-risk-mitigation>
+      <app-fixed-costs></app-fixed-costs>
+      <app-variable-costs></app-variable-costs>
+      <app-investment-plan></app-investment-plan>
+      <app-cost-summary></app-cost-summary>
+      <app-client-forecast></app-client-forecast>
+      <app-financial-forecast (scenarioChange)="onScenarioChange($event)"></app-financial-forecast>
+      <app-investment-return [scenario]="selectedFinancialScenario()"></app-investment-return>
+      <app-project-efficiency [scenario]="selectedFinancialScenario()"></app-project-efficiency>
+      <app-game></app-game>
+    </div>
+  </main>
+  <app-footer></app-footer>
+</div>

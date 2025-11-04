@@ -1,0 +1,27 @@
+<section id="showreel" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Наши работы</h2>
+    <p class="mt-4 text-lg text-gray-400">Взгляните на проекты, которыми мы гордимся.</p>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-6 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/40 max-w-7xl mx-auto">
+    @for(reel of reels; track reel.id; let i = $index) {
+      <div 
+        class="relative bg-black aspect-video"
+        [class.md:aspect-[9/16]]="reel.aspectRatio === '9x16'"
+        [class.md:col-span-2]="reel.aspectRatio === '9x16'"
+        [class.md:col-span-3]="reel.aspectRatio === '16x9'"
+        [class.md:hidden]="i === 7">
+        <video 
+          #videoPlayer
+          [src]="reel.videoUrl" 
+          autoplay
+          muted
+          loop
+          playsinline 
+          class="w-full h-full object-cover">
+        </video>
+      </div>
+    }
+  </div>
+</section>

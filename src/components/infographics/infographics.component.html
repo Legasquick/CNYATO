@@ -1,0 +1,44 @@
+<section id="infographics" class="container mx-auto px-6 py-12">
+  <!-- Sensitivity Factors -->
+  <div class="mb-24">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Факторы чувствительности</h2>
+      <p class="mt-4 text-lg text-gray-400">Что влияет на нашу индустрию.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for(factor of sensitivityFactors; track factor.name) {
+        <div class="group relative bg-gray-800 p-6 rounded-xl border border-gray-700 transition-shadow hover:shadow-lg hover:shadow-gray-900/50">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-white font-heading">{{ factor.name }}</h3>
+            <span class="px-3 py-1 text-sm font-medium rounded-full text-white" [class]="factor.color">{{ factor.level }}</span>
+          </div>
+          <div class="absolute inset-0 bg-gray-900/95 backdrop-blur-sm p-6 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <p class="text-gray-300 text-center">{{ factor.explanation }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Entry Barriers -->
+  <div>
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Барьеры для входа</h2>
+      <p class="mt-4 text-lg text-gray-400">Почему это сложный, но интересный рынок.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      @for(barrier of entryBarriers; track barrier.name) {
+        <div class="bg-gray-800/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/50 hover:-translate-y-2">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-xl font-semibold text-white w-3/4 font-heading">{{ barrier.name }}</h3>
+            <span class="text-right text-xs font-mono px-2 py-1 rounded bg-blue-900/50 text-blue-300">{{ barrier.duration }}</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-2.5 mb-4">
+            <div class="bg-gradient-to-r from-blue-500 to-blue-400 h-2.5 rounded-full" [class]="barrier.level === 'Высокая' ? 'w-full' : 'w-2/3'"></div>
+          </div>
+          <p class="text-gray-300 leading-relaxed">{{ barrier.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

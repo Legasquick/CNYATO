@@ -1,0 +1,85 @@
+.flow-section {
+  @apply w-full max-w-4xl flex flex-col items-center;
+}
+
+.flow-title {
+  @apply text-lg font-semibold text-gray-400 mb-2 font-heading;
+}
+
+.flow-box {
+  @apply w-full rounded-xl;
+}
+
+.gradient-border {
+  @apply p-[2px] bg-gradient-to-r from-blue-600 to-red-600;
+}
+
+.inner-box {
+  @apply bg-gray-900 p-6 rounded-[10px];
+}
+
+.flow-item {
+  @apply bg-gray-800/80 border border-gray-700 text-center text-white font-medium py-3 px-6 rounded-lg w-full md:w-auto md:min-w-[280px];
+}
+
+.arrow-connector {
+  @apply relative w-px h-12 bg-gray-700;
+}
+.arrow-connector::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 w-3 h-3 border-b-2 border-r-2 border-gray-600;
+  transform: translateX(-50%) translateY(50%) rotate(45deg);
+}
+
+.dual-arrow-connector {
+  @apply relative w-full max-w-4xl h-12 flex justify-center;
+}
+
+.dual-arrow-connector::before, .dual-arrow-connector::after {
+    content: '';
+    @apply absolute top-0 w-px h-full bg-gray-700;
+}
+
+/* Vertical lines for dual arrows */
+.dual-arrow-connector::before {
+    left: 25%;
+}
+.dual-arrow-connector::after {
+    right: 25%;
+}
+
+/* Arrowheads for dual arrows */
+.dual-arrow-connector::before {
+    background: linear-gradient(to bottom, #6b7280, #6b7280) no-repeat center/2px 100%;
+}
+.dual-arrow-connector::after {
+    background: linear-gradient(to bottom, #6b7280, #6b7280) no-repeat center/2px 100%;
+}
+
+/* Adding arrowheads using another set of pseudo-elements is complex. Let's use divs inside. Or simpler, just the lines. */
+/* The lines are sufficient to imply connection. Let's add arrowheads to the lines */
+.dual-arrow-connector::before {
+    background: 
+        linear-gradient(to bottom, #4b5563, #4b5563) no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 12L0 6h12z' fill='%234b5563'/%3E%3C/svg%3E") no-repeat bottom center;
+    background-size: 2px calc(100% - 10px), 10px 10px;
+}
+.dual-arrow-connector::after {
+    background: 
+        linear-gradient(to bottom, #4b5563, #4b5563) no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 12L0 6h12z' fill='%234b5563'/%3E%3C/svg%3E") no-repeat bottom center;
+    background-size: 2px calc(100% - 10px), 10px 10px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dual-arrow-connector::before, .dual-arrow-connector::after {
+    left: 50%;
+    right: auto;
+    transform: translateX(-1px);
+  }
+   .dual-arrow-connector::after {
+    display: none;
+  }
+}

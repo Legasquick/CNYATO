@@ -1,0 +1,50 @@
+<section id="investment-plan" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Направления Инвестирования</h2>
+    <p class="mt-4 text-lg text-gray-400">Первоначальные затраты, необходимые для запуска проекта.</p>
+  </div>
+
+  <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-2xl shadow-blue-900/40">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[900px] text-sm text-left text-gray-300">
+        <thead class="text-xs text-white uppercase bg-gray-800/60 font-heading">
+          <tr>
+            <th scope="col" class="px-6 py-3">Направление инвестирования</th>
+            <th scope="col" class="px-6 py-3 text-right">Цена (за ед.), P</th>
+            <th scope="col" class="px-6 py-3 text-center">Количество</th>
+            <th scope="col" class="px-6 py-3 text-right">Сумма, P</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(item of investmentData; track item.name) {
+            @if (item.type === 'super-category') {
+              <tr class="bg-gray-800/40">
+                <td colspan="3" class="px-6 py-3 font-bold text-white font-heading text-base">{{ item.name }}</td>
+                <td class="px-6 py-4 text-right font-mono font-bold text-white text-base">{{ item.total }}</td>
+              </tr>
+            } @else if (item.type === 'item') {
+              <tr class="border-b border-gray-700 hover:bg-gray-800/40">
+                <td class="px-6 py-4 font-medium text-white whitespace-nowrap">
+                  {{ item.name }}
+                </td>
+                <td class="px-6 py-4 text-right font-mono">{{ item.pricePerUnit || '' }}</td>
+                <td class="px-6 py-4 text-center">{{ item.quantity || '' }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ item.total }}</td>
+              </tr>
+            }
+          }
+        </tbody>
+        <tfoot>
+          @for(item of investmentData; track item.name) {
+            @if (item.type === 'total') {
+               <tr class="bg-gray-800 text-white font-bold font-heading">
+                <td colspan="3" class="px-6 py-4 text-right text-base">{{ item.name }}</td>
+                <td class="px-6 py-4 text-right font-mono text-blue-300 text-lg">{{ item.total }}</td>
+              </tr>
+            }
+          }
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

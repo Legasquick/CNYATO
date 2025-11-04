@@ -1,0 +1,51 @@
+<section id="risk-map" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Карта рисков</h2>
+    <p class="mt-4 text-lg text-gray-400">Анализ потенциальных угроз и их влияния.</p>
+  </div>
+
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-1">
+      <!-- Headers -->
+      <div class="p-4 hidden md:block"></div>
+      <div class="text-center p-4 font-bold text-white font-heading bg-gray-800/50 rounded-t-lg md:rounded-t-none">Низкая вероятность</div>
+      <div class="text-center p-4 font-bold text-white font-heading bg-gray-800/50">Средняя вероятность</div>
+      <div class="text-center p-4 font-bold text-white font-heading bg-gray-800/50 rounded-t-lg md:rounded-t-none">Высокая вероятность</div>
+
+      <!-- Risk Rows -->
+      @for(row of riskMap; track row.damage; let rowIndex = $index) {
+        <!-- Damage Level Header -->
+        <div class="md:row-start-{{rowIndex + 2}} p-4 flex items-center justify-center font-bold text-white font-heading bg-gray-800/50">
+          {{ row.damage }} ущерб
+        </div>
+
+        <!-- Risk Cells -->
+        @for(cell of row.cells; track $index; let cellIndex = $index) {
+          <div class="p-4 min-h-[12rem] border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1" 
+               [class]="cellColors[rowIndex][cellIndex]">
+            <div class="md:hidden font-bold text-white font-heading mb-2">
+              @if(cellIndex === 0) {Низкая}
+              @if(cellIndex === 1) {Средняя}
+              @if(cellIndex === 2) {Высокая}
+              вероятность
+            </div>
+            @if(cell.risks.length > 0) {
+              <ul class="space-y-3">
+                @for(risk of cell.risks; track risk.title) {
+                  <li>
+                    <h4 class="font-semibold text-white">{{ risk.title }}</h4>
+                    <p class="text-sm text-gray-400">{{ risk.examples }}</p>
+                  </li>
+                }
+              </ul>
+            } @else {
+              <div class="flex items-center justify-center h-full">
+                <span class="text-gray-500 text-sm italic">Нет значимых рисков</span>
+              </div>
+            }
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>

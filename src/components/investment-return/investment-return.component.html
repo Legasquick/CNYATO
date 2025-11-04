@@ -1,0 +1,37 @@
+<section id="investment-return" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Таблица 2: График возврата инвестиционных средств</h2>
+    <p class="mt-4 text-lg text-gray-400">Анализ окупаемости проекта на основе денежных потоков для выбранного сценария.</p>
+  </div>
+
+  <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-2xl shadow-blue-900/40 max-w-6xl mx-auto">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[900px] text-sm text-left text-gray-300">
+        <thead class="text-xs text-white uppercase bg-gray-800/60 font-heading">
+          <tr>
+            <th scope="col" class="px-6 py-3 w-[25%]">Показатель, ₽</th>
+            <th scope="col" class="px-6 py-3 text-right">Год 0</th>
+            <th scope="col" class="px-6 py-3 text-right">Год 1</th>
+            <th scope="col" class="px-6 py-3 text-right">Год 2</th>
+            <th scope="col" class="px-6 py-3 text-right">Год 3</th>
+            <th scope="col" class="px-6 py-3 text-right">Год 4</th>
+            <th scope="col" class="px-6 py-3 text-right">Год 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(row of currentData(); track row.indicator) {
+            <tr 
+              class="border-b border-gray-700 hover:bg-gray-800/40 last:border-b-0"
+              [class.font-bold]="row.isBold"
+              [class.text-white]="row.isBold">
+              <td class="px-6 py-4 whitespace-nowrap">{{ row.indicator }}</td>
+              @for(value of row.values; track $index) {
+                <td class="px-6 py-4 text-right font-mono">{{ value }}</td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

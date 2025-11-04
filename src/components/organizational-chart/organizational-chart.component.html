@@ -1,0 +1,194 @@
+<section id="organizational-chart" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Структура организации</h2>
+    <p class="mt-4 text-lg text-gray-400">Комбинированная схема: функциональная иерархия и проектные команды.</p>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+      <div class="legend-item"><span class="legend-color color-producer"></span><span>Продюсирование</span></div>
+      <div class="legend-item"><span class="legend-color color-creative"></span><span>Креатив</span></div>
+      <div class="legend-item"><span class="legend-color color-production"></span><span>Производство</span></div>
+      <div class="legend-item"><span class="legend-color color-post-prod"></span><span>Пост-продакшн</span></div>
+      <div class="legend-item"><span class="legend-color color-admin"></span><span>Администрация</span></div>
+  </div>
+  
+  <!-- Functional Chart -->
+  <div class="chart-container">
+      <div class="functional-chart">
+          <ul>
+              <li class="ceo">
+                  <span>Генеральный Директор</span>
+                  <ul>
+                      <li class="department">
+                          <span>Продюсерский отдел</span>
+                          <ul>
+                              <li class="specialist"><span class="producer-dept">Продюсер А</span></li>
+                              <li class="specialist"><span class="producer-dept">Продюсер Б</span></li>
+                              <li class="specialist"><span class="producer-dept">Продюсер В</span></li>
+                          </ul>
+                      </li>
+                      <li class="department">
+                          <span>Креативный отдел</span>
+                          <ul>
+                              <li class="specialist"><span class="creative-dept">Сценарист</span></li>
+                              <li class="specialist"><span class="creative-dept">Режиссер</span></li>
+                          </ul>
+                      </li>
+                      <li class="department">
+                          <span>Производственный отдел</span>
+                          <ul>
+                              <li class="manager">
+                                  <span>Руководитель производства</span>
+                                  <ul>
+                                      <li class="specialist"><span class="production-dept">Оператор 1</span></li>
+                                      <li class="specialist"><span class="production-dept">Оператор 2</span></li>
+                                      <li class="specialist"><span class="production-dept">Оператор 3</span></li>
+                                      <li class="specialist"><span class="production-dept">Звукорежиссер</span></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="department">
+                          <span>Отдел пост-продакшена</span>
+                          <ul>
+                              <li class="manager">
+                                  <span>Руководитель пост-продакшена</span>
+                                  <ul>
+                                      <li class="specialist"><span class="post-prod-dept">Монтажер 1</span></li>
+                                      <li class="specialist"><span class="post-prod-dept">Монтажер 2</span></li>
+                                      <li class="specialist"><span class="post-prod-dept">Монтажер 3</span></li>
+                                      <li class="specialist"><span class="post-prod-dept">Колорист</span></li>
+                                      <li class="specialist"><span class="post-prod-dept">Моушн-дизайнер</span></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="department">
+                          <span>Административный отдел</span>
+                          <ul>
+                              <li class="specialist"><span class="admin-dept">Бухгалтер</span></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- Connector -->
+  <div class="matrix-connector">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+      </svg>
+  </div>
+
+  <!-- Project Teams -->
+  <div class="project-teams-container">
+      <div class="project-card">
+          <div class="project-header">
+              <h3>Проект "ТехноКорп"</h3>
+              <p>Руководитель: <b class="producer-dept">Продюсер А</b></p>
+          </div>
+          <ul>
+              <li class="creative-dept">Сценарист</li>
+              <li class="creative-dept">Режиссер</li>
+              <li class="production-dept">Оператор 1</li>
+              <li class="production-dept">Оператор 2</li>
+              <li class="production-dept">Звукорежиссер</li>
+              <li class="post-prod-dept">Монтажер 1</li>
+              <li class="post-prod-dept">Колорист</li>
+          </ul>
+      </div>
+      <div class="project-card">
+          <div class="project-header">
+              <h3>Проект "Бренд Стиль"</h3>
+              <p>Руководитель: <b class="producer-dept">Продюсер Б</b></p>
+          </div>
+          <ul>
+              <li class="creative-dept">Сценарист</li>
+              <li class="production-dept">Оператор 3</li>
+              <li class="post-prod-dept">Монтажер 2</li>
+              <li class="post-prod-dept">Монтажер 3</li>
+              <li class="post-prod-dept">Моушн-дизайнер</li>
+          </ul>
+      </div>
+      <div class="project-card">
+          <div class="project-header">
+              <h3>Проект "ЭкоПродукт"</h3>
+              <p>Руководитель: <b class="producer-dept">Продюсер В</b></p>
+          </div>
+          <ul>
+              <li class="creative-dept">Режиссер</li>
+              <li class="production-dept">Оператор 1</li>
+              <li class="production-dept">Оператор 3</li>
+              <li class="post-prod-dept">Монтажер 1</li>
+              <li class="post-prod-dept">Колорист</li>
+              <li class="post-prod-dept">Моушн-дизайнер</li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- Payroll Section -->
+  <div class="text-center mt-24 mb-12">
+    <h3 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Фонд оплаты труда (ФОТ)</h3>
+    <p class="mt-4 text-lg text-gray-400">Детализированный расчет ФОТ в месяц.</p>
+  </div>
+  <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-2xl shadow-blue-900/40">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[1000px] text-sm text-left text-gray-300">
+        <thead class="text-xs text-white uppercase bg-gray-800/60 font-heading">
+          <tr>
+            <th scope="col" class="px-6 py-3">Отдел / Должность</th>
+            <th scope="col" class="px-6 py-3 text-center">Кол-во</th>
+            <th scope="col" class="px-6 py-3 text-right">Оклад "на руки" (Net), P</th>
+            <th scope="col" class="px-6 py-3 text-right">Оклад "Гросс" (Gross), P</th>
+            <th scope="col" class="px-6 py-3 text-right">Страховые взносы (~30.2%), P</th>
+            <th scope="col" class="px-6 py-3 text-right">Полная стоимость для компании (без премий), P</th>
+            <th scope="col" class="px-6 py-3 text-right">Премиальный фонд отдела (20% от Gross), P</th>
+            <th scope="col" class="px-6 py-3 text-right">Итоговый ФОТ отдела (с премиями и налогами), P</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(row of payrollData; track row.position || row.department) {
+            @if(row.isHeader) {
+              <tr class="bg-gray-800/40">
+                <td colspan="8" class="px-6 py-3 font-bold text-white font-heading">{{ row.department }}</td>
+              </tr>
+            } @else if(!row.isFooter) {
+              <tr class="border-b border-gray-700 hover:bg-gray-800/40">
+                <td class="px-6 py-4 font-medium text-white whitespace-nowrap">{{ row.position }}</td>
+                <td class="px-6 py-4 text-center">{{ row.count }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.net }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.gross }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.insurance }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.totalNoBonus }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.bonus }}</td>
+                <td class="px-6 py-4 text-right font-mono font-bold text-white">{{ row.totalWithBonus }}</td>
+              </tr>
+            }
+          }
+        </tbody>
+        <tfoot>
+           @for(row of payrollData; track row.department) {
+            @if(row.isFooter) {
+              <tr class="bg-gray-800 text-white font-bold font-heading">
+                <td class="px-6 py-4">{{ row.department }}</td>
+                <td class="px-6 py-4 text-center">{{ row.count }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.net }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.gross }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.insurance }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.totalNoBonus }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ row.bonus }}</td>
+                <td class="px-6 py-4 text-right font-mono text-blue-300 text-base">{{ row.totalWithBonus }}</td>
+              </tr>
+            }
+          }
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <p class="text-center mt-6 text-gray-400">
+    Итоговый ФОТ в месяц с учетом всех налогов и премиального фонда составляет <strong class="text-white font-heading">1 877 500 ₽</strong>.
+  </p>
+</section>

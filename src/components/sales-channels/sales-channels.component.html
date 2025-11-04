@@ -1,0 +1,41 @@
+<section id="sales-channels" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Анализ Каналов Сбыта</h2>
+    <p class="mt-4 text-lg text-gray-400">Как мы находим наших клиентов и взаимодействуем с ними.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for(channel of channels; track channel.name) {
+      @if (channel.name !== 'Через магазины:' && channel.name !== '● оптом и в розницу') {
+        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/50 hover:-translate-y-2 flex flex-col">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold text-white font-heading">{{ channel.name }}</h3>
+            <span class="px-3 py-1 text-xs font-medium rounded-full" [class]="degreeStyles[channel.degree]">{{ channel.degree }}</span>
+          </div>
+          
+          <div class="flex-grow space-y-4">
+            @if(channel.advantages) {
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                <h4 class="font-semibold text-green-400 font-heading text-sm">Преимущества</h4>
+              </div>
+              <p class="text-gray-300 leading-relaxed text-sm pl-7">{{ channel.advantages }}</p>
+            </div>
+            }
+
+            @if(channel.disadvantages) {
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                 <svg class="w-5 h-5 text-red-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                <h4 class="font-semibold text-red-400 font-heading text-sm">Недостатки</h4>
+              </div>
+              <p class="text-gray-300 leading-relaxed text-sm pl-7">{{ channel.disadvantages }}</p>
+            </div>
+             }
+          </div>
+        </div>
+      }
+    }
+  </div>
+</section>

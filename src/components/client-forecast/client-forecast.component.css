@@ -1,0 +1,30 @@
+:host ::ng-deep .axis path,
+:host ::ng-deep .axis line {
+  stroke: #4b5563; /* gray-600 */
+}
+
+:host ::ng-deep .axis text {
+  fill: #9ca3af; /* gray-400 */
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+}
+
+:host ::ng-deep .grid .domain {
+  display: none;
+}
+
+:host ::ng-deep .grid line {
+  stroke-opacity: 0.7;
+  stroke-dasharray: 2,2;
+}
+
+:host ::ng-deep .focus-line {
+    stroke: #6b7280; /* gray-500 */
+    stroke-width: 1;
+    stroke-dasharray: 3,3;
+}
+
+:host ::ng-deep .overlay {
+    fill: none;
+    pointer-events: all;
+}

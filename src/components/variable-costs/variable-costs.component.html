@@ -1,0 +1,54 @@
+<section id="variable-costs" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Таблица переменных затрат</h2>
+    <p class="mt-4 text-lg text-gray-400">Расходы, зависящие от объема производства.</p>
+  </div>
+
+  <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-2xl shadow-blue-900/40">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[800px] text-sm text-left text-gray-300">
+        <thead class="text-xs text-white uppercase bg-gray-800/60 font-heading">
+          <tr>
+            <th scope="col" class="px-6 py-3 w-12">№ п/п</th>
+            <th scope="col" class="px-6 py-3">Переменные затраты</th>
+            <th scope="col" class="px-6 py-3 text-center">Кол-во (объем)</th>
+            <th scope="col" class="px-6 py-3 text-right">Средняя стоимость за ед.</th>
+            <th scope="col" class="px-6 py-3 text-right">Итого (примерный)</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(group of costGroups; track group.id) {
+            <tr class="border-b border-gray-700">
+              <td class="px-6 py-4 text-center">{{ group.id }}</td>
+              <td class="px-6 py-4 font-medium text-white" colspan="4">{{ group.name }}</td>
+            </tr>
+            @for(item of group.items; track item.name) {
+              <tr class="border-b border-gray-700 hover:bg-gray-800/40">
+                <td class="px-6 py-4"></td>
+                <td class="pl-12 py-4 text-white">{{ item.name }}</td>
+                <td class="px-6 py-4 text-center">{{ item.volume }}</td>
+                <td class="px-6 py-4 text-right font-mono">{{ item.unitPrice }}</td>
+                <td class="px-6 py-4 text-right font-mono font-bold text-white">{{ item.total }}</td>
+              </tr>
+            }
+          }
+          @for(cost of otherCosts; track cost.id) {
+            <tr class="border-b border-gray-700 hover:bg-gray-800/40 last:border-b-0">
+              <td class="px-6 py-4 text-center">{{ cost.id }}</td>
+              <td class="px-6 py-4 font-medium text-white">{{ cost.name }}</td>
+              <td class="px-6 py-4 text-center">{{ cost.volume }}</td>
+              <td class="px-6 py-4 text-right font-mono">{{ cost.unitPrice }}</td>
+              <td class="px-6 py-4 text-right font-mono font-bold text-white">{{ cost.total }}</td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr class="bg-gray-800 text-white font-bold font-heading">
+            <td colspan="4" class="px-6 py-4 text-right">Итого переменных затрат:</td>
+            <td class="px-6 py-4 text-right font-mono text-blue-300 text-base">{{ totalCost }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

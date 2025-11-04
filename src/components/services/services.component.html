@@ -1,0 +1,82 @@
+<section id="services" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Наши Услуги</h2>
+    <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">Мы предлагаем как комплексное стратегическое партнерство, так и пакетные решения для конкретных бизнес-задач.</p>
+  </div>
+  
+  <!-- Flagship Service -->
+  <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12 border-2 border-blue-500 shadow-2xl shadow-blue-900/50 mb-20 relative">
+     <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
+        <span class="bg-blue-600 text-white px-6 py-2 text-base font-semibold rounded-full uppercase tracking-wider shadow-lg">Флагман</span>
+      </div>
+    <div class="text-center">
+      <h3 class="text-3xl font-bold text-white font-heading">{{ flagshipService.name }}</h3>
+      <p class="mt-4 text-gray-300 max-w-4xl mx-auto">{{ flagshipService.description }}</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6">
+        <span class="text-2xl font-black text-white font-heading">{{ flagshipService.price }} <span class="text-base font-light text-gray-400">{{ flagshipService.priceNote }}</span></span>
+        <span class="inline-block bg-gray-700 text-gray-300 text-sm font-mono px-4 py-1 rounded-full">{{ flagshipService.format }}</span>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      @for(stage of flagshipService.stages; track stage.title) {
+        <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-700">
+          <h4 class="text-xl font-bold text-blue-400 font-heading">{{ stage.title }}</h4>
+          <p class="text-sm text-gray-400 mb-4 font-mono">{{ stage.subtitle }}</p>
+          <ul class="space-y-3">
+            @for(point of stage.points; track point) {
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-blue-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/></svg>
+                <span class="text-gray-300 text-sm">{{ point }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Packages -->
+  <div class="text-center mb-12">
+     <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Пакетные решения</h2>
+    <p class="mt-4 text-lg text-gray-400">Для быстрого старта и решения конкретных задач.</p>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    @for(pkg of packages; track pkg.name) {
+      <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 flex flex-col">
+        <div class="flex-grow">
+          <div class="flex items-start gap-4 mb-4">
+              <div class="bg-blue-600/10 p-3 rounded-lg mt-1 flex-shrink-0">
+                  <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="pkg.icon"></path></svg>
+              </div>
+              <div>
+                  <h3 class="text-2xl font-bold text-white font-heading">{{ pkg.name }}</h3>
+              </div>
+          </div>
+          
+          <div class="space-y-4 mb-6 text-sm">
+            <p><strong class="font-semibold text-gray-300 font-heading">Для кого:</strong> <span class="text-gray-400">{{ pkg.target }}</span></p>
+            <p><strong class="font-semibold text-gray-300 font-heading">Бизнес-задача:</strong> <span class="text-gray-400">{{ pkg.task }}</span></p>
+          </div>
+          
+          <div class="mb-6">
+            <h4 class="font-semibold text-white mb-3 font-heading">Что входит:</h4>
+            <ul class="space-y-2">
+              @for(item of pkg.includes; track item) {
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-gray-300 text-sm">{{ item }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+            <span class="text-3xl font-black text-white font-heading">{{ pkg.price }}</span>
+            <p class="text-gray-400 text-sm">ориентировочная стоимость</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,55 @@
+<section id="media-plan" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Медиаплан кампании и бюджет</h2>
+    <p class="mt-4 text-lg text-gray-400">Наш план действий на ближайшее время.</p>
+  </div>
+  
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-6 text-center">
+      <span class="inline-block bg-blue-900/50 text-blue-300 font-semibold px-4 py-2 rounded-lg">
+        Сроки кампании: {{ campaignDuration }}
+      </span>
+    </div>
+
+    <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden">
+      <!-- Desktop Header -->
+      <div class="hidden md:grid md:grid-cols-3 gap-4 px-6 py-4 border-b border-gray-700 bg-gray-800">
+        <div class="font-bold text-white font-heading">Виды работ / Мероприятия</div>
+        <div class="font-bold text-white font-heading">Сроки</div>
+        <div class="font-bold text-white font-heading">Ожидаемые итоги</div>
+      </div>
+      
+      <!-- Rows -->
+      @for(item of mediaPlan; track item.activity) {
+        <div class="md:grid md:grid-cols-3 gap-4 px-6 py-5 border-b border-gray-700 last:border-b-0 hover:bg-gray-800/60 transition-colors duration-200">
+          
+          <!-- Activity -->
+          <div class="mb-4 md:mb-0">
+            <h3 class="font-bold text-white font-heading md:hidden mb-2">Мероприятие:</h3>
+            <p class="text-gray-300">{{ item.activity }}</p>
+          </div>
+          
+          <!-- Timeline -->
+          <div class="mb-4 md:mb-0">
+            <h3 class="font-bold text-white font-heading md:hidden mb-2">Сроки:</h3>
+            <span class="inline-block bg-gray-700 text-gray-300 text-sm font-mono px-3 py-1 rounded">{{ item.timeline }}</span>
+          </div>
+
+          <!-- Outcomes -->
+          <div class="mb-4 md:mb-0">
+            <h3 class="font-bold text-white font-heading md:hidden mb-2">Ожидаемые итоги:</h3>
+            <ul class="space-y-2">
+              @for(outcome of item.outcomes; track outcome) {
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-green-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span class="text-gray-300">{{ outcome }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+
+        </div>
+      }
+    </div>
+  </div>
+</section>

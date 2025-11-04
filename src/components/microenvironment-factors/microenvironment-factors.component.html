@@ -1,0 +1,56 @@
+<section id="microenvironment-factors" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">Факторы микросреды</h2>
+    <p class="mt-4 text-lg text-gray-400">Ключевые угрозы и возможности, влияющие на наш бизнес.</p>
+  </div>
+
+  <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-2xl shadow-blue-900/40">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[1000px] text-sm text-left text-gray-300">
+        <thead class="text-xs text-white uppercase bg-gray-800/60 font-heading">
+          <tr>
+            <th scope="col" class="px-6 py-4 w-1/4">Фактор микросреды</th>
+            <th scope="col" class="px-6 py-4 w-1/2">Описание влияния фактора</th>
+            <th scope="col" class="px-6 py-4 w-1/4 text-center">Степень влияния / Ранг важности</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(factor of factors; track factor.name) {
+            <tr class="border-b border-gray-700 hover:bg-gray-800/40 last:border-b-0 align-top">
+              <td class="px-6 py-4 font-medium text-white whitespace-nowrap">{{ factor.name }}</td>
+              <td class="px-6 py-4">
+                @if (factor.opportunities.length > 0) {
+                  <div class="mb-3">
+                    <div class="flex items-center gap-2 mb-1">
+                      <svg class="w-5 h-5 text-green-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 6-3.75-6-3.75" /></svg>
+                      <h4 class="font-semibold text-green-400 font-heading text-sm">Возможность</h4>
+                    </div>
+                    @for(opportunity of factor.opportunities; track opportunity) {
+                      <p class="pl-7 text-gray-300 leading-relaxed">{{ opportunity }}</p>
+                    }
+                  </div>
+                }
+                @if (factor.threats.length > 0) {
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <svg class="w-5 h-5 text-red-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+                      <h4 class="font-semibold text-red-400 font-heading text-sm">Угроза</h4>
+                    </div>
+                     @for(threat of factor.threats; track threat) {
+                      <p class="pl-7 text-gray-300 leading-relaxed">{{ threat }}</p>
+                    }
+                  </div>
+                }
+              </td>
+              <td class="px-6 py-4 text-center">
+                <span class="px-3 py-1 text-xs font-medium rounded-full" [class]="getRankClass(factor.rankValue)">
+                  {{ factor.rank }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

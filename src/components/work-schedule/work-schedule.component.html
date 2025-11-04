@@ -1,0 +1,25 @@
+<section id="work-schedule" class="container mx-auto px-6 py-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-heading">График работы сотрудников</h2>
+    <p class="mt-4 text-lg text-gray-400">Гибкость и фокус на результат — основа нашей работы.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    @for(item of schedules; track item.department) {
+      <div class="bg-gray-800/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/50 hover:-translate-y-2">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="bg-blue-600/20 p-3 rounded-lg mt-1">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-white font-heading">{{ item.department }}</h3>
+            <span class="inline-block bg-gray-700 text-gray-300 text-sm font-mono px-3 py-1 rounded mt-2">{{ item.schedule }}</span>
+          </div>
+        </div>
+        <p class="text-gray-300 leading-relaxed md:pl-16">{{ item.format }}</p>
+      </div>
+    }
+  </div>
+</section>
